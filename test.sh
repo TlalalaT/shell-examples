@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-i=0;
-while [[ $i -lt 10 ]];do
-	echo -n $((i++));
+
+for file in ./*.sh;do
+	if [[ $file =~ $0 ]];then
+		continue
+	fi
+	printf "==================== %s ====================\n" "$file"
+	bash "$file"
 done
+
